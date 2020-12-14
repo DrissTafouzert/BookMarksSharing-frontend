@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">RedditClone</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a routerLink="" class="nav-link" routerLinkActive="active" >Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="post" class="nav-link" routerLinkActive="active">Post</a> 
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" routerLink='/create-post'  role="button" data-toggle="dropdown"  >
+            Create post
+          </a>
+          
+        </li>
+       
+      </ul>
+
+      <form class="form-inline mr-auto" [formGroup]="searchForm">
+        <input class="form-control mr-sm-2" 
+        [formControlName]="'postName'"
+        type="search" placeholder="Search" aria-label="Search">
+        <button (click)="searchByPostTitle()" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+
+      <form class="form-inline my-2 my-lg-0">
+        <div *ngIf="!isLoggedIn">
+            <a routerLink="/sign-up" class="float-right sign-up mr-2 nav-link">Sign up</a>
+            <a routerLink="/login" class="float-right login mr-2 nav-link">Login</a>
+        </div>
+
+        <div *ngIf="isLoggedIn" ngbDropdown #myDrop="ngbDropdown">
+          
+          <button id='dropdown' class="float-right login mr-2 nav-link btn btn-outline-primary" 
+          ngbDropdownAnchor (focus)="myDrop.open()">
+          {{username}}
+        </button>
+          <ul ngbDropdownMenu aria-labelledby="dropdown">
+            <li ngbDropdownItem (click)="goToProfile()">Profile</li>
+            <li ngbDropdownItem (click)="logOut()">Log out</li>
+          </ul>
+        </div>
+      </form>
+      
+    </div>
+  </nav>

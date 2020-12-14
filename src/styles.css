@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~material-icons/iconfont/material-icons.css";
+.color-red
+{
+    color: red;
+}
+
+html,
+body
+{
+    height: 100%;
+}
+.fullHeight
+{
+    height: 100%;
+}
+.fullWidth
+{
+    width: 100%;
+}
+.fullWidthHeight
+{
+    height: 100%;
+}
+.bg-dark-orange
+{
+    background-color: rgb(255,140,0);
+}
+
+.color-white
+{
+    color: white;
+}
+
+.register-form-body
+{
+    background-color:rgb(255,163,51);
+}

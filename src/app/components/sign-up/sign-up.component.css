@@ -1,0 +1,16 @@
+.btn-outline-primary:hover
+{
+    background-color: rgb(255,140,0)!important;
+    border-color: white;
+    color: white;
+}
+.btn-outline-primary
+{
+    color: white;
+    border-color: white;
+}
+
+.register-form
+{
+    border-radius:100px;
+}
