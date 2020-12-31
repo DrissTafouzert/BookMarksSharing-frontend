@@ -12,7 +12,12 @@ export class ViewPostComponent implements OnInit {
   @Input() post:Post
   @ViewChild('upVoteBtn') upVoteBtn:ElementRef
   @ViewChild('downVoteBtn') downVoteBtn:ElementRef
-  constructor(private voteService:VoteService) { }
+  constructor(private voteService:VoteService) 
+  { 
+    this.post={
+      
+    }
+  }
 
   ngOnInit(): void 
   {

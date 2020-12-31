@@ -18,7 +18,14 @@ export class HeaderComponent implements OnInit
   searchForm:FormGroup
   constructor(private router:Router,
               private authService:AuthService,
-              private postService:PostService) { }
+              private postService:PostService) 
+              { 
+                this.searchForm=new FormGroup(
+                  {
+                    postName:new FormControl('',Validators.required)
+                  }
+                )
+              }
 
   ngOnInit(): void 
   {

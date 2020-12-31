@@ -17,7 +17,8 @@ import { ViewPostComponent } from './components/post/view-post/view-post.compone
 import { CreateSubredditComponent } from './components/subreddit/create-subreddit/create-subreddit.component';
 import { ListSubredditsComponent } from './components/subreddit/list-subreddits/list-subreddits.component';
 import { TokenInterceptorInterceptor } from './services/interceptor/token-interceptor.interceptor';
-import {EditorModule} from '@tinymce/tinymce-angular'
+import {EditorModule} from '@tinymce/tinymce-angular' 
+import { HttpClientTestingModule } from '@angular/common/http/testing'; 
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {EditorModule} from '@tinymce/tinymce-angular'
     HttpClientModule,
     NgbModule,
     NgxWebstorageModule.forRoot(),
-    EditorModule
+    EditorModule,
+    HttpClientTestingModule
   ],
   providers: [
     {
