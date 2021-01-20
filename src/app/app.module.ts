@@ -18,7 +18,8 @@ import { CreateSubredditComponent } from './components/subreddit/create-subreddi
 import { ListSubredditsComponent } from './components/subreddit/list-subreddits/list-subreddits.component';
 import { TokenInterceptorInterceptor } from './services/interceptor/token-interceptor.interceptor';
 import {EditorModule} from '@tinymce/tinymce-angular' 
-import { HttpClientTestingModule } from '@angular/common/http/testing'; 
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { SideBarComponent } from './components/side-bar/side-bar.component'; 
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
     CreatePostComponent,
     ViewPostComponent,
     CreateSubredditComponent,
-    ListSubredditsComponent
+    ListSubredditsComponent,
+    SideBarComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
     NgbModule,
     NgxWebstorageModule.forRoot(),
     EditorModule,
-    HttpClientTestingModule
+    // HttpClientTestingModule
   ],
   providers: [
     {

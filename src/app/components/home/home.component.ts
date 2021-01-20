@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener, ViewChild, ElementRef } from '@angular/core';
 import { Post } from 'src/app/models/post';
 import { PostService } from 'src/app/services/post/post.service';
+import { SubredditService } from 'src/app/services/subreddit/subreddit.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,8 @@ import { PostService } from 'src/app/services/post/post.service';
 export class HomeComponent implements OnInit 
 {
   posts:Post[]
-  constructor(private postService:PostService) { }
+  constructor(private postService:PostService,
+              private subreddit:SubredditService) { }
 
   ngOnInit(): void 
   {
@@ -29,6 +31,23 @@ export class HomeComponent implements OnInit
       result=>
       {
         this.posts=result
+      }
+    )
+  }
+  getAllSubreddit()
+  {
+    console.log("call subreddit req");
+    
+    this.subreddit.getAll().subscribe(
+      result=>
+      {
+        console.log(result);
+        
+      },
+      error=>
+      {
+        console.log(error);
+        
       }
     )
   }

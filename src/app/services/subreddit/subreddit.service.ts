@@ -12,6 +12,7 @@ export class SubredditService
   constructor(private http:HttpClient) { }
   getAll() :Observable<any>
   {
+    
    return this.http.get<any>(API_REST.subreddit.getAll)
   }
 }

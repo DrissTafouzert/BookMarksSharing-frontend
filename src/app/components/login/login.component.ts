@@ -31,12 +31,21 @@ export class LoginComponent implements OnInit {
   }
   logIn()
   {
+    console.log("h");
+    
     this.loginRequest.userName=this.loginForm.get('username').value
     this.loginRequest.password=this.loginForm.get('password').value
+    console.log(this.loginRequest);
     this.authService.login(this.loginRequest).subscribe(result=>
       {
+        console.log("hi");
+        
         this.route.navigate(['/'])
         console.log("sussceful")
+      },
+      error=>{
+        console.log(error);
+        
       })
   }
 

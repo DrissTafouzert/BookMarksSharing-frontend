@@ -1,0 +1,19 @@
+.bg-light
+{
+    background-color: #E5E5E5 !important;
+}
+.btn-profile ul li 
+{
+    cursor: pointer;
+    padding:15px;
+}
+    .btn-profile ul li:hover 
+    {
+        background-color: #E5E5E5 !important;
+    }
+.btn-profile img
+{
+    width: 30px;
+    height: 30px;
+}
+

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
     <a class="navbar-brand" href="#">RedditClone</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -16,7 +16,6 @@
           <a class="nav-link" routerLink='/create-post'  role="button" data-toggle="dropdown"  >
             Create post
           </a>
-          
         </li>
        
       </ul>
@@ -34,10 +33,11 @@
             <a routerLink="/login" class="float-right login mr-2 nav-link">Login</a>
         </div>
 
-        <div *ngIf="isLoggedIn" ngbDropdown #myDrop="ngbDropdown">
+        <div *ngIf="isLoggedIn" ngbDropdown #myDrop="ngbDropdown" class="btn-profile" >
           
-          <button id='dropdown' class="float-right login mr-2 nav-link btn btn-outline-primary" 
+          <button id='dropdown' class="float-right  mr-2 nav-link btn btn-outline-primary" 
           ngbDropdownAnchor (focus)="myDrop.open()">
+          <img src="/assets/images/user-icon.png" alt="">
           {{username}}
         </button>
           <ul ngbDropdownMenu aria-labelledby="dropdown">

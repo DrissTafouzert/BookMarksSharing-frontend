@@ -1,7 +1,7 @@
 
 .colorR
 {
-    color:rgb(255 229 196);
+    color: rgb(255 229 196);
     color: rgb(255 193 167);
     color: rgb(246 126 125);
     color: rgb(125 122 162);
@@ -30,11 +30,12 @@
 .post
 {
     margin: 0%;
-    width: 60%;
+    width: 100%;
     border-radius:10px;
-    background-color: rgb(193 0 55);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    background-color: white;
     display: flex;
-    color: white;
+    color: black;
 }
 .vote
 {
@@ -68,12 +69,12 @@
 }
 .subreddit-name
 {
-    color: white;
+    color: black;
     font-size: 14px;
 }
 .postedby
 {
-    color: #bfbfbf;
+    color: #838383;
     font-size: 12px;
 }
 .img-post
@@ -82,7 +83,7 @@
 }
 .btn-join
 {
-    border-color: transparent;
+    border: none;
     width: 34px;
     height: 22px;
     text-align: center;
@@ -91,6 +92,7 @@
     border-radius: 7px;
     vertical-align: sub;
     text-align: center;
+    background-color: #c9c8c8;
 }
 .description-post
 {
@@ -103,9 +105,9 @@
 }
 .fotter-post .icon
 {
-    vertical-align: bottom;
-    font-size: 17px;
+    vertical-align: middle;
     cursor: pointer;
+    width: 15px;
 }
 .fotter-post .icon-text
 {

@@ -1,5 +1,14 @@
-
-
-<app-header></app-header>
-
-<router-outlet></router-outlet> 
+<div class="container">
+    <app-header></app-header>
+    <div class="row">
+        <div class="col-lg-8">
+            <router-outlet></router-outlet> 
+        </div>
+        <div class="col-lg-4">
+            <app-side-bar></app-side-bar>
+        </div>
+    </div>
+    
+    
+    
+</div>

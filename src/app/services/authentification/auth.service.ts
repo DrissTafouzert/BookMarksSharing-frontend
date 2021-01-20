@@ -29,6 +29,8 @@ export class AuthService
   }
   login(loginRequest:LoginRequest):Observable<any>
   {
+    console.log("hi it still ");
+    
      return this.http.post<LoginResponse>(API_REST.auth.login, loginRequest)
       .pipe(map(result => 
       {

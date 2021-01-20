@@ -1,0 +1,31 @@
+.side-bar
+{
+    top: 100px;
+    background-color: white;
+}
+.side-bar li
+{
+    list-style: none;
+
+}
+.side-bar .footer
+{
+    text-align: center;
+}
+    .side-bar .footer .btn
+    {
+        background: -webkit-linear-gradient(to right, #43cea2, #185a9d); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #43cea2, #185a9d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        color:white;
+        width: 70%;
+        border-radius:50px;
+       
+    }
+.side-bar .top-of-side-bar
+{
+    width: 100%;
+    height: 70px;
+    color: white;
+    background: -webkit-linear-gradient(to right, #43cea2, #185a9d); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #43cea2, #185a9d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
