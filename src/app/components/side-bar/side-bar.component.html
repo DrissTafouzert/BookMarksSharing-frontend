@@ -3,34 +3,11 @@
         <h5 >Relation ship communties</h5>
     </div>
     <ul>
-        <li class="my-lg-4">
-            <img class="mr-lg-2" src="/assets/images/save-icon.png" alt="">
-            r/AskReddit
+        <li class="my-lg-4 subreddit" *ngFor="let subreddit of subreddits">
+            <img class="mr-lg-2" src="https://ui-avatars.com/api/?background={{subreddit.colorIcon}}&color=fff&name={{subreddit.name}}" alt="">
+            r/{{subreddit.name}}
         </li>
-        <li class="my-lg-4">
-            <img class="mr-lg-2" src="/assets/images/save-icon.png" alt="">
-            r/AskReddit
-        </li>
-        <li class="my-lg-4">
-            <img class="mr-lg-2" src="/assets/images/save-icon.png" alt="">
-            r/AskReddit
-        </li>
-        <li class="my-lg-4">
-            <img class="mr-lg-2" src="/assets/images/save-icon.png" alt="">
-            r/AskReddit
-        </li>
-        <li class="my-lg-4">
-            <img class="mr-lg-2" src="/assets/images/save-icon.png" alt="">
-            r/AskReddit
-        </li>
-        <li class="my-lg-4">
-            <img class="mr-lg-2" src="/assets/images/save-icon.png" alt="">
-            r/AskReddit
-        </li>
-        <li class="my-lg-4">
-            <img class="mr-lg-2" src="/assets/images/save-icon.png" alt="">
-            r/AskReddit
-        </li>
+      
     </ul>
     <div class="footer">
         <button class="btn"> View all</button>

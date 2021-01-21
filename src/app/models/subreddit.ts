@@ -4,4 +4,5 @@ export interface Subreddit
     id?:number
     name?:string
     numberOfPosts?:number
+    colorIcon?:string
 }
