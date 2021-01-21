@@ -1,0 +1,38 @@
+.comment .user-icon
+{
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+}
+.comment .posted-ago
+{
+    color: gray;
+    font-size: 12px;
+}
+.up-vote, .down-vote
+{
+    color: gray;
+    transform:scale(3.2,0.7);
+    cursor: pointer;
+    display: inline-block;
+}
+    .up-vote:hover
+    {
+        color: red;
+    }
+    .down-vote:hover
+    {
+        color:blue;
+    }
+
+.comment-count, 
+.replay p
+{
+    font-size: 12px;
+    font-weight: bolder;
+}
+.replay img
+{
+    width: 15px;
+    height: 15px;
+}

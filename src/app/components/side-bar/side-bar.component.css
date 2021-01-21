@@ -2,6 +2,7 @@
 {
     top: 100px;
     background-color: white;
+    z-index: 1;
 }
 .side-bar li
 {

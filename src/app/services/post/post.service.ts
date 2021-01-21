@@ -4,6 +4,7 @@ import { Post } from 'src/app/models/post';
 import { API_REST } from 'src/app/API_REST/api_rest';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { Comment } from 'src/app/models/comment';
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +43,10 @@ export class PostService {
           this.postsSearch.emit(result)
         }
       ))
+  }
+  getCommentsByPost(id:number):Observable<Array<Comment>>
+  {
+   return this.http.get<Array<Comment>>(API_REST.post.getCommentsByPostId+"/"+id)
   }
 
 }

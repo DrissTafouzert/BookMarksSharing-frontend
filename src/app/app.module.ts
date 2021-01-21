@@ -19,7 +19,10 @@ import { ListSubredditsComponent } from './components/subreddit/list-subreddits/
 import { TokenInterceptorInterceptor } from './services/interceptor/token-interceptor.interceptor';
 import {EditorModule} from '@tinymce/tinymce-angular' 
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { SideBarComponent } from './components/side-bar/side-bar.component'; 
+import { SideBarComponent } from './components/side-bar/side-bar.component';
+import { DetailPostComponent } from './components/post/detail-post/detail-post.component';
+import { CommentComponent } from './components/comment/comment.component'; 
+import { RandomColor } from './services/random-color';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,9 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
     ViewPostComponent,
     CreateSubredditComponent,
     ListSubredditsComponent,
-    SideBarComponent
+    SideBarComponent,
+    DetailPostComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,8 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
       provide:HTTP_INTERCEPTORS,
       useClass:TokenInterceptorInterceptor,
       multi:true
-    }
+    },
+    RandomColor
   ],
   bootstrap: [AppComponent]
 })

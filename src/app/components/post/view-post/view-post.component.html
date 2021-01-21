@@ -31,7 +31,11 @@
 
         <div class="row description-post">
             <div class="col-12">
-                <h5>{{post.postName}}</h5>
+                <h5>
+                    <a [routerLink]="['/detail-post',post.id]">
+                        {{post.postName}}
+                    </a>
+                </h5>
             </div>
             <div class="col-12">
                 <p [innerHtml]="post.description">
