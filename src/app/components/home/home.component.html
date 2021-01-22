@@ -1,21 +1,27 @@
-<div>
-    <div class="row create-post my-lg-5 align-items-center ">
-        <div class="col-lg-2 d-flex justify-content-center">
-            <img class="user-icon mx-auto" src="/assets/images/user-icon.png" alt="">
+<div class="row">
+    <div class="col-lg-8">
+        <div class="row create-post my-lg-5 align-items-center ">
+            <div class="col-lg-2 d-flex justify-content-center">
+                <img class="user-icon mx-auto" src="/assets/images/user-icon.png" alt="">
+            </div>
+            <div class="col-lg-8">
+                <input type="text" placeholder="Create a post...">
+            </div>
+            <div class="col-lg-2 d-flex justify-content-center">
+                <img class="link-icon" src="/assets/images/link-icon.png" alt="">
+            </div>
         </div>
-        <div class="col-lg-8">
-            <input type="text" placeholder="Create a post...">
-        </div>
-        <div class="col-lg-2 d-flex justify-content-center">
-            <img class="link-icon" src="/assets/images/link-icon.png" alt="">
-        </div>
+        <ul class="post-list">
+            <li *ngFor="let post of posts">
+                <app-view-post [post]="post">
+                </app-view-post>
+            </li>
+        </ul>
     </div>
-    <ul class="post-list">
-        <li *ngFor="let post of posts">
-            <app-view-post [post]="post">
-            </app-view-post>
-        </li>
-    </ul>
+    <div class="col-lg-4">
+        <app-side-bar [type]="'top-subreddit'"></app-side-bar>
+    </div>
+    
 </div>
 
 

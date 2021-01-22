@@ -19,7 +19,8 @@ export const API_REST={
     subreddit:{
         save:SERVER_ADDR+'/api/subreddit',
         getById:SERVER_ADDR+'/api/subreddit',
-        getAll:SERVER_ADDR+'/api/subreddit'
+        getAll:SERVER_ADDR+'/api/subreddit',
+        getByName:SERVER_ADDR+'/api/subreddit/byName'
     },
     vote:SERVER_ADDR+'/api/vote'
 

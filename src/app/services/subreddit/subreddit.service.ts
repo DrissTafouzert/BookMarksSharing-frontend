@@ -15,4 +15,8 @@ export class SubredditService
     
    return this.http.get<any>(API_REST.subreddit.getAll)
   }
+  getSubredditByName(name:string):Observable<Subreddit>
+  {
+    return this.http.get<Subreddit>(API_REST.subreddit.getByName+'/'+name)
+  }
 }
