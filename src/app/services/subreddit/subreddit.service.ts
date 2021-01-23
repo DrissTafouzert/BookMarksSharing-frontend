@@ -12,11 +12,14 @@ export class SubredditService
   constructor(private http:HttpClient) { }
   getAll() :Observable<any>
   {
-    
    return this.http.get<any>(API_REST.subreddit.getAll)
   }
   getSubredditByName(name:string):Observable<Subreddit>
   {
     return this.http.get<Subreddit>(API_REST.subreddit.getByName+'/'+name)
+  }
+  getSubredditById(id:number):Observable<Subreddit>
+  {
+    return this.http.get<Subreddit>(API_REST.subreddit.getById+"/"+id)
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SubredditService } from 'src/app/services/subreddit/subreddit.service';
 import { Subreddit } from 'src/app/models/subreddit';
 import { RandomColor } from 'src/app/services/random-color'; 
@@ -12,6 +12,7 @@ export class SideBarComponent implements OnInit
 {
   @Input() type:string
   @Input() subreddit_name:string
+  @Output() click_subreddit=new EventEmitter<number>()
   subreddits:Subreddit[]
   subreddit:Subreddit
 
@@ -20,8 +21,14 @@ export class SideBarComponent implements OnInit
 
   ngOnInit(): void 
   {
-      this.getAllSubreddit()
-      this.getSubreddit(this.subreddit_name)
+      if(this.type=='top-subreddit')
+      {
+        this.getAllSubreddit()
+      }
+      else
+      {
+        this.getSubreddit(this.subreddit_name)
+      }
   }
 
   getAllSubreddit()
@@ -53,6 +60,10 @@ export class SideBarComponent implements OnInit
   getRandomColor()
   {
     return this.randomColor.getColor()
+  }
+  clickOnSubreddit(id:number)
+  {
+    this.click_subreddit.emit(id)
   }
 
 }

@@ -6,9 +6,8 @@
     <ul *ngIf="type=='top-subreddit'">
         <li class="my-lg-4 subreddit" *ngFor="let subreddit of subreddits">
             <img class="mr-lg-2" src="https://ui-avatars.com/api/?background={{subreddit.colorIcon}}&color=fff&name={{subreddit.name}}" alt="">
-            r/{{subreddit.name}}
+            <a (click)="clickOnSubreddit(subreddit.id)" [routerLink]="['/subreddit-post',subreddit.id]">r/{{subreddit.name}}</a> 
         </li>
-      
     </ul>
     <p class="m-4" *ngIf="type=='about'">{{subreddit.description}}</p>
     <div class="footer">

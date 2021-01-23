@@ -11,7 +11,7 @@ export const API_REST={
         save:SERVER_ADDR+'/api/post',
         getAll:SERVER_ADDR+'/api/post',
         getById:SERVER_ADDR+'/api/post',
-        getBySubredditId:SERVER_ADDR+'/api/post',
+        getBySubredditId:SERVER_ADDR+'/api/post/by-subreddit',
         getByUsername:SERVER_ADDR+'/api/post',
         search:SERVER_ADDR+'/api/post/search',
         getCommentsByPostId:SERVER_ADDR+'/api/comments/by-post'

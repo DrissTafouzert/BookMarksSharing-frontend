@@ -1,1 +1,23 @@
-<p>list-subreddits works!</p>
+<div class=" mt-lg-5 subreddit-section">
+<div class="row header-subreddit mx-auto align-items-center justify-content-center">
+    <div class="col-lg-2 position-relative">
+        <img class="mr-lg-2" src="https://ui-avatars.com/api/?background={{subreddit.colorIcon}}&color=fff&name={{subreddit.name}}" alt="">
+    </div>
+    <div class="col-lg-8"><h2>{{subreddit.name}}</h2></div>
+    <div class="col-lg-2"><button class="btn btn-primary">Join</button></div>
+</div>
+<div class="row">
+    <div class="col-lg-8">
+        <ul>
+            <li class="mt-lg-5" *ngFor="let post of posts">
+                <app-view-post [post]="post"></app-view-post>
+            </li>
+        </ul>
+        
+    </div>
+    <div class="col-lg-4">
+        <app-side-bar (click_subreddit)="changeSubreddit($event)"  [type]="'top-subreddit'"></app-side-bar>
+    </div>
+</div>
+
+</div>
