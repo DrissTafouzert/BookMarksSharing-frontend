@@ -22,4 +22,8 @@ export class SubredditService
   {
     return this.http.get<Subreddit>(API_REST.subreddit.getById+"/"+id)
   }
+  joinSubreddit(id:number)
+  {
+    return this.http.get(API_REST.subreddit.join+'/'+id)
+  }
 }

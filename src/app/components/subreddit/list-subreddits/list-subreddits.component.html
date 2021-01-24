@@ -4,7 +4,7 @@
         <img class="mr-lg-2" src="https://ui-avatars.com/api/?background={{subreddit.colorIcon}}&color=fff&name={{subreddit.name}}" alt="">
     </div>
     <div class="col-lg-8"><h2>{{subreddit.name}}</h2></div>
-    <div class="col-lg-2"><button class="btn btn-primary">Join</button></div>
+    <div class="col-lg-2"><button (click)="joinSubreddit()" class="btn btn-primary">Join</button></div>
 </div>
 <div class="row">
     <div class="col-lg-8">

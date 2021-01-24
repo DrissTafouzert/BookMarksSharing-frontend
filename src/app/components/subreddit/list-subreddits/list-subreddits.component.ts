@@ -56,6 +56,15 @@ export class ListSubredditsComponent implements OnInit {
       }
     )
   }
+  joinSubreddit()
+  {
+    this.subredditService.joinSubreddit(this.subreddit_id).subscribe(
+      result=>
+      {
+        
+      }
+    )
+  }
   changeSubreddit(event)
   {
     
