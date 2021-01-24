@@ -30,10 +30,11 @@ export class PostService {
   {
     return this.http.get<Array<Post>>(API_REST.post.getBySubredditId+'/'+id)
   }
-  getByUsername(username:string):Observable<Array<Post>>
+  getByCurrentUser():Observable<Array<Post>>
   {
-    return this.http.get<Array<Post>>(API_REST.post.getByUsername+'/'+username)
+    return this.http.get<Array<Post>>(API_REST.post.getByCurrentUser)
   }
+  
   searchPostByTitle(title:string):Observable<Array<Post>>
   {
     return this.http.get<Array<Post>>(API_REST.post.search+'/'+title)

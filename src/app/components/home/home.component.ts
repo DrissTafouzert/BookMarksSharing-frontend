@@ -16,16 +16,11 @@ export class HomeComponent implements OnInit
 
   ngOnInit(): void 
   {
-    this.postService.getAll().subscribe(
+    this.postService.getByCurrentUser().subscribe(
       result=>
       {
         this.posts=result
-      },
-      error=>
-      {
-        console.log('Error post',error)        
       }
-      
     )
     this.postService.postsSearch.subscribe(
       result=>
@@ -36,50 +31,12 @@ export class HomeComponent implements OnInit
   }
   getAllSubreddit()
   {
-    console.log("call subreddit req");
-    
     this.subreddit.getAll().subscribe(
       result=>
       {
-        console.log(result);
-        
-      },
-      error=>
-      {
-        console.log(error);
-        
       }
     )
   }
-@HostListener('window:scroll',['$event'])
-onScroll(e:Event):void
-{
-  console.log(
-    this.getScrollingElement().scrollHeight,
-    document.body.offsetHeight,
-    this.getScrollingElement().scrollTop,
-    this.getScrollingElement().clientHeight,
-    window.innerHeight,
-    window.innerHeight + window.scrollY);
-    console.log( "topscroll", this.getTopPosition(e), e);
-    
-  
-  if(window.scrollY+window.innerHeight>=this.getScrollingElement().scrollHeight)
-  {
-    console.log("load",e,this.getTopPosition(e));
-    
-  }
- 
 
-}
-
-getTopPosition(e:Event)
-{  
-  return (e.target as Element).scrollTop
-}
-getScrollingElement()
-{
-  return document.scrollingElement || document.documentElement
-}
 
 }
