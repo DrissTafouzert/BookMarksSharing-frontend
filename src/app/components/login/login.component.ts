@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/services/authentification/auth.service';
 import { Router } from '@angular/router';
 import { LoginRequest } from 'src/app/models/loginRequest/login-request';
 import { FormGroup, FormControl, Validators, FormControlName } from '@angular/forms';
+import { ToastService } from 'src/app/services/toast/toast.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
   loginRequest:LoginRequest
   loginForm:FormGroup
   constructor(private authService:AuthService,
-              private route:Router) 
+              private route:Router,
+              private toastService:ToastService) 
   {
     this.loginRequest={
       userName:'',
@@ -30,22 +32,19 @@ export class LoginComponent implements OnInit {
     })
   }
   logIn()
-  {
-    console.log("h");
+  { 
     
     this.loginRequest.userName=this.loginForm.get('username').value
     this.loginRequest.password=this.loginForm.get('password').value
-    console.log(this.loginRequest);
     this.authService.login(this.loginRequest).subscribe(result=>
-      {
-        console.log("hi");
-        
-        this.route.navigate(['/'])
-        console.log("sussceful")
+      { 
+        this.toastService.toasts=[]
+        this.toastService.showSucess("vous etez connecter")
+        this.route.navigate(['/']) 
       },
-      error=>{
-        console.log(error);
-        
+      error=>
+      { 
+        this.toastService.showError("mot de pass incorrect")
       })
   }
 

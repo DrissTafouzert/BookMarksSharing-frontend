@@ -5,6 +5,7 @@ import { Post } from 'src/app/models/post';
 import { ActivatedRoute } from '@angular/router';
 import { Subreddit } from 'src/app/models/subreddit';
 import { RandomColor } from 'src/app/services/random-color';
+import { ToastService } from 'src/app/services/toast/toast.service';
 
 @Component({
   selector: 'app-list-subreddits',
@@ -16,7 +17,8 @@ export class ListSubredditsComponent implements OnInit {
   constructor(private route:ActivatedRoute,
               private postService:PostService,
               private subredditService:SubredditService,
-              private randomColor:RandomColor) { }
+              private randomColor:RandomColor,
+              private toastService:ToastService) { }
 
   posts:Post[]
   subreddit_id:number
@@ -34,6 +36,10 @@ export class ListSubredditsComponent implements OnInit {
       result=>
       {
         this.posts=result;
+      },
+      error=>
+      {
+        this.toastService.showError("Network error")
       }
     )
   }
@@ -53,6 +59,10 @@ export class ListSubredditsComponent implements OnInit {
       {
         this.subreddit=result
         this.subreddit.colorIcon=this.getRandomColor()
+      },
+      error=>
+      {
+        this.toastService.showError("Network error")
       }
     )
   }
@@ -61,7 +71,11 @@ export class ListSubredditsComponent implements OnInit {
     this.subredditService.joinSubreddit(this.subreddit_id).subscribe(
       result=>
       {
-        
+        this.toastService.showSucess("You joined "+this.subreddit.name)
+      },
+      error=>
+      {
+        this.toastService.showError("Network error")
       }
     )
   }

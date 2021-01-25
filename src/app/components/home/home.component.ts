@@ -22,12 +22,20 @@ export class HomeComponent implements OnInit
       result=>
       {
         this.posts=result
+      },
+      error=>
+      {
+        this.toastService.showError("Network error")
       }
     )
     this.postService.postsSearch.subscribe(
       result=>
       {
         this.posts=result
+      },
+      error=>
+      {
+        this.toastService.showError("Network error")
       }
     )
     
@@ -37,13 +45,12 @@ export class HomeComponent implements OnInit
     this.subreddit.getAll().subscribe(
       result=>
       {
+      },
+      error=>
+      {
+        this.toastService.showError("Network error")
       }
     )
   }
-  show()
-  {
-    this.toastService.show("Error",{delay:5000,classname:'toast'})
-  }
-
 
 }

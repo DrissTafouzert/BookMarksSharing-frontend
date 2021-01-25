@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SubredditService } from 'src/app/services/subreddit/subreddit.service';
 import { Subreddit } from 'src/app/models/subreddit';
 import { RandomColor } from 'src/app/services/random-color'; 
+import { ToastService } from 'src/app/services/toast/toast.service';
 
 @Component({
   selector: 'app-side-bar',
@@ -17,7 +18,8 @@ export class SideBarComponent implements OnInit
   subreddit:Subreddit
 
   constructor(private subredditService:SubredditService,
-              private randomColor:RandomColor) { }
+              private randomColor:RandomColor,
+              private toastService:ToastService) { }
 
   ngOnInit(): void 
   {
@@ -38,6 +40,10 @@ export class SideBarComponent implements OnInit
       {
         this.subreddits=result
         this.AffectAcolorToSubredditIcon(this.subreddits)
+      },
+      error=>
+      {
+        this.toastService.showError("Network error")
       }
     )
   }
@@ -47,6 +53,10 @@ export class SideBarComponent implements OnInit
       result=>
       {
         this.subreddit=result
+      },
+      error=>
+      {
+        this.toastService.showError("Network error")
       }
     )
   }

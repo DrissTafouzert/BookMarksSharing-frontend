@@ -41,10 +41,13 @@ body
 .toast
 {
     position: fixed;
+    width: 300px;
     bottom: 0;
     right: 50%;
-    margin: 0.5em;
+    margin-right: -150px;
+    margin-bottom: 10px;
     z-index: 1200;
     color: white;
+    text-align: center;
     background-color: black;
 }
