@@ -26,4 +26,8 @@ export class SubredditService
   {
     return this.http.get(API_REST.subreddit.join+'/'+id)
   }
+  getTop10():Observable<Array<Subreddit>>
+  {
+    return this.http.get<Array<Subreddit>>(API_REST.subreddit.getTop10)
+  }
 }

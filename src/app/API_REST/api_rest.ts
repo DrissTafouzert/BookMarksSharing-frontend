@@ -21,7 +21,8 @@ export const API_REST={
         getById:SERVER_ADDR+'/api/subreddit',
         getAll:SERVER_ADDR+'/api/subreddit',
         getByName:SERVER_ADDR+'/api/subreddit/byName',
-        join:SERVER_ADDR+'/api/subreddit/join'
+        join:SERVER_ADDR+'/api/subreddit/join',
+        getTop10:SERVER_ADDR+'/api/subreddit/top10'
     },
     vote:SERVER_ADDR+'/api/vote'
 

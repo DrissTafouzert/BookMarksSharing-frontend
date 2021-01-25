@@ -23,7 +23,7 @@ export class SideBarComponent implements OnInit
   {
       if(this.type=='top-subreddit')
       {
-        this.getAllSubreddit()
+        this.getTop10Subreddit()
       }
       else
       {
@@ -31,9 +31,9 @@ export class SideBarComponent implements OnInit
       }
   }
 
-  getAllSubreddit()
+  getTop10Subreddit()
   {
-      this.subredditService.getAll().subscribe(
+      this.subredditService.getTop10().subscribe(
       result=>
       {
         this.subreddits=result
