@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener, ViewChild, ElementRef } from '@angular
 import { Post } from 'src/app/models/post';
 import { PostService } from 'src/app/services/post/post.service';
 import { SubredditService } from 'src/app/services/subreddit/subreddit.service';
+import { ToastService } from 'src/app/services/toast/toast.service';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,8 @@ export class HomeComponent implements OnInit
 {
   posts:Post[]
   constructor(private postService:PostService,
-              private subreddit:SubredditService) { }
+              private subreddit:SubredditService,
+              private toastService:ToastService) { }
 
   ngOnInit(): void 
   {
@@ -28,6 +30,7 @@ export class HomeComponent implements OnInit
         this.posts=result
       }
     )
+    
   }
   getAllSubreddit()
   {
@@ -36,6 +39,10 @@ export class HomeComponent implements OnInit
       {
       }
     )
+  }
+  show()
+  {
+    this.toastService.show("Error",{delay:5000,classname:'toast'})
   }
 
 

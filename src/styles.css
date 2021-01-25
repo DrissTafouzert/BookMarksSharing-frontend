@@ -38,3 +38,13 @@ body
 {
     background-color:rgb(255,163,51);
 }
+.toast
+{
+    position: fixed;
+    bottom: 0;
+    right: 50%;
+    margin: 0.5em;
+    z-index: 1200;
+    color: white;
+    background-color: black;
+}

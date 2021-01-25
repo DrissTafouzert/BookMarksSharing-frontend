@@ -23,6 +23,7 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { DetailPostComponent } from './components/post/detail-post/detail-post.component';
 import { CommentComponent } from './components/comment/comment.component'; 
 import { RandomColor } from './services/random-color';
+import { ToastComponent } from './components/toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { RandomColor } from './services/random-color';
     ListSubredditsComponent,
     SideBarComponent,
     DetailPostComponent,
-    CommentComponent
+    CommentComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule,
