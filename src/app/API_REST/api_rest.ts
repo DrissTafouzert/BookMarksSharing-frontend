@@ -24,6 +24,10 @@ export const API_REST={
         join:SERVER_ADDR+'/api/subreddit/join',
         getTop10:SERVER_ADDR+'/api/subreddit/top10'
     },
-    vote:SERVER_ADDR+'/api/vote'
+    vote:SERVER_ADDR+'/api/vote',
+    comment:
+    {
+        save:SERVER_ADDR+'/api/comments'
+    }
 
 }

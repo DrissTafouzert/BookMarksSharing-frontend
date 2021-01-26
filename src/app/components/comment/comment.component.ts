@@ -15,7 +15,7 @@ export class CommentComponent implements OnInit
   constructor(private randomColor:RandomColor) 
   { 
     this.comment={ 
-      id:0,
+      id_post:0,
       text:'',
       userName:'',
       createdDate:''

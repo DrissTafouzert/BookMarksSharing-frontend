@@ -9,7 +9,7 @@
             <a (click)="clickOnSubreddit(subreddit.id)" [routerLink]="['/subreddit-post',subreddit.id]">r/{{subreddit.name}}</a> 
         </li>
     </ul>
-    <p class="m-4" *ngIf="type=='about'">{{subreddit.description}}</p>
+    <p class="m-4" *ngIf="type=='about'&& subreddit">{{subreddit.description}}</p>
     <div class="footer">
         <button class="btn"> View all</button>
     </div>
