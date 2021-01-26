@@ -1,1 +1,29 @@
-<p>create-subreddit works!</p>
+<div class="row  h-100 align-items-center">
+    <div class="col-lg-6">
+        <h2>
+            create a community,  share your thoughts and learn from others experience.
+        </h2>
+    </div>
+    <div class="col-lg-6">
+        <form [formGroup]="subredditForm" (ngSubmit)="saveSubreddit()">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input id="title" class="form-control" type="text" [formControlName]="'title'">
+                <div *ngIf="!subredditForm.get('title').valid && subredditForm.get('title').touched"
+                class="color-red">
+                    Please provide a valid username
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" class="form-control" [formControlName]="'description'">
+                </textarea>  
+                <div *ngIf="!subredditForm.get('description').valid && subredditForm.get('description').touched"
+                class="color-red">
+                    Please provide a valid username
+                </div>                  
+            </div>
+            <button type="submit" [disabled]="!subredditForm.valid" class="btn btn-primary">Save subreddit</button>
+        </form>
+    </div>
+</div>
