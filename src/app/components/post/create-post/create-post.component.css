@@ -3,26 +3,14 @@
     background:inherit;
     overflow: hidden;
 }
-.post-form .form-group
+.post-form 
 {
-    background: rgba(240, 230, 140, 0.301);
+    background:white;
     padding:10px;
     border-radius:20px;
     z-index: 11;
     backdrop-filter: blur(20px);
     height: 100%;
-}
-.container
-{
-    height: 100%;
-}
-.bg
-{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-image:url('../../../../assets/images/naruto.jpg');
-    background-size: cover;
 }
 input,select
 {

@@ -35,7 +35,7 @@ export class CreatePostComponent implements OnInit {
       description:new FormControl('',Validators.required),
       postName:new FormControl('',Validators.required),
       subredditName: new FormControl('',Validators.required),
-      url:new FormControl('',Validators.required)
+      url:new FormControl('')
     })
     this.subredditService.getAll().subscribe(
       result=>

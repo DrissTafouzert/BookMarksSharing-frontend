@@ -75,7 +75,7 @@ export class ListSubredditsComponent implements OnInit {
       },
       error=>
       {
-        this.toastService.showError("Network error")
+        this.toastService.showError(error.error.message)
       }
     )
   }

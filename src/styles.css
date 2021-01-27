@@ -47,3 +47,7 @@ body
 {
     height:90%
 }
+.tox-notifications-container
+{
+    display: none;
+}
