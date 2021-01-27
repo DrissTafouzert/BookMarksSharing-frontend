@@ -1,12 +1,16 @@
 <div class="register-section fullHeight">
     <div class="row justify-content-center align-items-center fullHeight">
-        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <img class="side-img" src="/assets/images/people-happy.jpg" alt="">
+            <h1 class="img-text">by registering you can discuss and vote the content of other users on pretty much every field of human knowledge.</h1>
+
+        </div>
         <div class="col-md-6">
             <div class="card register-form">
-                <div class="card-header bg-dark-orange color-white" style="text-align: center">
+                <div class="card-header" style="text-align: center">
                     <h4>SignUp</h4>
                 </div>
-                <div class="card-body register-form-body">
+                <div class="card-body ">
                     <form [formGroup]="registerForm" (ngSubmit)="signUp()">
                         <div class="form-group row">
                             <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail
@@ -44,7 +48,7 @@
                         </div>
  
                         <span class="col-md-6 offset-md-4">
-                            <button type="submit" class="sign-up btn btn-outline-primary">
+                            <button type="submit" class="sign-up btn btn-primary">
                                 Sign Up
                             </button>
                             <span style="padding-left: 15px">Existing user? <a routerLink="/login">Log In</a></span>
@@ -53,6 +57,5 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3"></div>
     </div>
 </div>

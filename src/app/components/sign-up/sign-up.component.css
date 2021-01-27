@@ -1,16 +1,47 @@
-.btn-outline-primary:hover
+.btn-primary:hover
 {
-    background-color: rgb(255,140,0)!important;
+    background-color:rgba(25, 0, 255, 0.555) !important;
     border-color: white;
     color: white;
-}
-.btn-outline-primary
-{
-    color: white;
-    border-color: white;
 }
 
 .register-form
 {
-    border-radius:100px;
+    border-radius:13px;
+}
+.card-header
+{
+    background-color:white;
+    border-bottom-color: white;
+    border-radius: 13px 13px 0 0;
+}
+.register-form .card-header::after
+{
+    content:'';
+    height: 2px;
+    background-color:gray;
+    width: 0;
+    position: absolute;
+    top: 55px;
+    right: 60px;
+}
+.register-form:hover .card-header::after
+{
+    width: 80%;
+    transform: .5s;
+    transition: all .5s;
+}
+.side-img
+{
+    position:absolute;
+    top: -73px;
+    filter: brightness(0.5) blur(3px);
+    z-index: 0;
+}
+.img-text
+{
+    position: relative;
+    text-align: center;
+    color: white;
+    z-index: 11111;
 }

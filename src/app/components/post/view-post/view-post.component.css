@@ -114,3 +114,8 @@
     font-size:12px;
     margin-left: 3px;
 }
+a
+{
+    text-decoration: none;
+    color: black;
+}

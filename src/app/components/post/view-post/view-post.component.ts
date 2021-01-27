@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { Post } from 'src/app/models/post';
+import { RandomColor } from 'src/app/services/random-color';
 import { VoteService } from 'src/app/services/vote/vote.service';
 
 @Component({
@@ -12,11 +13,14 @@ export class ViewPostComponent implements OnInit {
   @Input() post:Post
   @ViewChild('upVoteBtn') upVoteBtn:ElementRef
   @ViewChild('downVoteBtn') downVoteBtn:ElementRef
-  constructor(private voteService:VoteService) 
+  bgColorIcon:string
+  constructor(private voteService:VoteService,
+              private randomColor:RandomColor) 
   { 
     this.post={
       
     }
+    this.bgColorIcon=this.randomColor.getColor()
   }
 
   ngOnInit(): void 

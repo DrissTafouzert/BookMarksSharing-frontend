@@ -24,20 +24,12 @@ body
 {
     height: 100%;
 }
-.bg-dark-orange
-{
-    background-color: rgb(255,140,0);
-}
 
 .color-white
 {
     color: white;
 }
-
-.register-form-body
-{
-    background-color:rgb(255,163,51);
-}
+ 
 .toast
 {
     position: fixed;
