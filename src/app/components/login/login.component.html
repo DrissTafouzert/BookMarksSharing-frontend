@@ -36,7 +36,7 @@
                         </div>
  
                         <span class="col-md-6 offset-md-4">
-                            <button type="submit" class="sign-up btn btn-primary">
+                            <button type="submit" [disabled]="!loginForm.valid" class="sign-up btn btn-primary">
                                 Log in
                             </button>
                             <span style="padding-left: 15px">Create a compte? <a routerLink="/sign-up">Sign Up</a></span>

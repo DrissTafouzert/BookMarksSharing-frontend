@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterRequest } from 'src/app/models/registerRequest/register-request';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/authentification/auth.service';
+import { ToastService } from 'src/app/services/toast/toast.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,7 +15,8 @@ export class SignUpComponent implements OnInit
   registerRequest:RegisterRequest;
   public registerForm:FormGroup;
   constructor(private router:Router,
-            private authService:AuthService) 
+            private authService:AuthService,
+            private toastService:ToastService) 
   {
     this.registerRequest={
       username:'',
@@ -28,8 +30,10 @@ export class SignUpComponent implements OnInit
     this.registerForm=new FormGroup({
       username:new FormControl('',Validators.required),
       email:new FormControl('',[Validators.required,Validators.email]),
-      password:new FormControl('',Validators.required)
+      password:new FormControl('',Validators.required),
+      confirmPassword:new FormControl('',[Validators.required])
     });
+    this.registerForm.setValidators(this.MustMatch)
   }
   signUp()
   {
@@ -40,11 +44,25 @@ export class SignUpComponent implements OnInit
                     .subscribe(result=>
                       {
                         this.router.navigate(['/login'])
+                        this.toastService.showSucess("Your account created successfuly")
                       },
                       error=>
                       {
-                        console.log(error);                        
+                        this.toastService.showError(error.error.message)                      
                       })
   }
-
+  MustMatch(control:AbstractControl): { [key:string]: boolean} | null
+  {
+      if(control.get('password').value!==control.get('confirmPassword').value)
+      {
+        return {'notMatch':true}
+      }
+      else
+      {
+        return null
+      }
+        
+  }
+  
 }
+

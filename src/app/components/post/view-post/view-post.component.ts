@@ -1,6 +1,9 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { Post } from 'src/app/models/post';
+import { Subreddit } from 'src/app/models/subreddit';
 import { RandomColor } from 'src/app/services/random-color';
+import { SubredditService } from 'src/app/services/subreddit/subreddit.service';
+import { ToastService } from 'src/app/services/toast/toast.service';
 import { VoteService } from 'src/app/services/vote/vote.service';
 
 @Component({
@@ -15,7 +18,9 @@ export class ViewPostComponent implements OnInit {
   @ViewChild('downVoteBtn') downVoteBtn:ElementRef
   bgColorIcon:string
   constructor(private voteService:VoteService,
-              private randomColor:RandomColor) 
+              private randomColor:RandomColor,
+              private subredditService:SubredditService,
+              private toastService:ToastService) 
   { 
     this.post={
       
@@ -46,6 +51,28 @@ export class ViewPostComponent implements OnInit {
         this.downVoteBtn.nativeElement.style.color="black"
         this.upVoteBtn.nativeElement.style.color='white'
         this.post.voteCount--
+      }
+    )
+  }
+  getSubredditAndJoin()
+  {
+    return this.subredditService.getSubredditByName(this.post.subredditName).subscribe(
+      result=>
+      {
+         this.joinSubreddit(result.id)
+      }
+    )
+  }
+  joinSubreddit(id:number)
+  {
+    this.subredditService.joinSubreddit(id).subscribe(
+      result=>
+      {
+        this.toastService.showSucess("You joined this subreddit.")
+      },
+      error=>
+      {
+        this.toastService.showError(error.error.message)
       }
     )
   }

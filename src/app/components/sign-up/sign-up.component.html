@@ -32,7 +32,7 @@
                                 <div *ngIf="!registerForm.get('username').valid && registerForm.get('username').touched"
                                 class="color-red">
                                     Please provide a valid username
-                            </div>                                 
+                                </div>                                 
                             </div>
                         </div>
  
@@ -43,12 +43,27 @@
                                 <div *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched"
                                         class="color-red">
                                     Please provide a valid Password
-                            </div>  
+                                </div>  
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">Confirm password</label>
+                            <div class="col-md-6">
+                                <input type="password" [formControlName]="'confirmPassword'"  id="confirmPassword" class="form-control" name="ConfPassword" required>
+                                <div *ngIf="!registerForm.get('confirmPassword').valid && registerForm.get('confirmPassword').touched "
+                                        class="color-red">
+                                    Please confirm your password
+                                </div>
+                                <div *ngIf="registerForm.get('confirmPassword').value != registerForm.get('password').value "
+                                        class="color-red">
+                                    Password don't match
+                                </div>  
                             </div>
                         </div>
  
                         <span class="col-md-6 offset-md-4">
-                            <button type="submit" class="sign-up btn btn-primary">
+                            <button type="submit" [disabled]="!registerForm.valid" class="sign-up btn btn-primary">
                                 Sign Up
                             </button>
                             <span style="padding-left: 15px">Existing user? <a routerLink="/login">Log In</a></span>
