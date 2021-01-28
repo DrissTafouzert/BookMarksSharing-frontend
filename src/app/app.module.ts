@@ -24,6 +24,8 @@ import { DetailPostComponent } from './components/post/detail-post/detail-post.c
 import { CommentComponent } from './components/comment/comment.component'; 
 import { RandomColor } from './services/random-color';
 import { ToastComponent } from './components/toast/toast.component';
+import { ViewSubredditComponent } from './components/subreddit/view-subreddit/view-subreddit.component';
+import { PopularComponent } from './components/popular/popular.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { ToastComponent } from './components/toast/toast.component';
     SideBarComponent,
     DetailPostComponent,
     CommentComponent,
-    ToastComponent
+    ToastComponent,
+    ViewSubredditComponent,
+    PopularComponent
   ],
   imports: [
     BrowserModule,

@@ -17,3 +17,9 @@
     height: 30px;
 }
 
+.active
+{
+    color: black;
+    font-weight: 500;
+}
+

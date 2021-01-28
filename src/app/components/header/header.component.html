@@ -6,18 +6,12 @@
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a routerLink="" class="nav-link" routerLinkActive="active" >Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/create-subreddit" class="nav-link" routerLinkActive="active">Create subreddit</a> 
+        <li class="nav-item ">
+          <a routerLink="/home" class="nav-link active" routerLinkActive="active" >Home </a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link" routerLink='/create-post'  role="button" data-toggle="dropdown"  >
-            Create post
-          </a>
+          <a routerLink="/popular-posts" class="nav-link" routerLinkActive="active" >Popular</a>
         </li>
-       
       </ul>
 
       <form class="form-inline mr-auto" [formGroup]="searchForm">
@@ -49,3 +43,4 @@
       
     </div>
   </nav>
+ 

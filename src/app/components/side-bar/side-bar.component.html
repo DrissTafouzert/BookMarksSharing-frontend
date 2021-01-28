@@ -1,9 +1,14 @@
 <div class="side-bar sticky-top mt-lg-5 ">
     <div class="top-of-side-bar d-flex justify-content-center align-items-center">
-        <h5 *ngIf="type=='top-subreddit'" >Relation ship communties</h5>
+        
+        <h5 *ngIf="type=='top-subreddit'" >
+            Relation ship communties
+        </h5>
+        
         <h5 *ngIf="type=='about'" >About Community</h5>
     </div>
     <ul *ngIf="type=='top-subreddit'">
+        <small >Top 10 subreddits</small>
         <li class="my-lg-4 subreddit" *ngFor="let subreddit of subreddits">
             <img class="mr-lg-2" src="https://ui-avatars.com/api/?background={{subreddit.colorIcon}}&color=fff&name={{subreddit.name}}" alt="">
             <a (click)="clickOnSubreddit(subreddit.id)" [routerLink]="['/subreddit-post',subreddit.id]">r/{{subreddit.name}}</a> 
@@ -11,7 +16,7 @@
     </ul>
     <p class="m-4" *ngIf="type=='about'&& subreddit">{{subreddit.description}}</p>
     <div class="footer">
-        <button class="btn"> View all</button>
+        <button routerLink="/list-subreddit" class="btn"> View all</button>
     </div>
     <br>
 </div>
