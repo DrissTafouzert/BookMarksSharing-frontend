@@ -1,4 +1,5 @@
-const SERVER_ADDR='http://localhost:8080'
+// const SERVER_ADDR='http://localhost:8080'
+const SERVER_ADDR='https://reddit-clone-app-api.herokuapp.com/'
 
 export const API_REST={
     auth:{
