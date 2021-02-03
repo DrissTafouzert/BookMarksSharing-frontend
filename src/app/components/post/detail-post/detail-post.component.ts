@@ -7,6 +7,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CommentService } from 'src/app/services/comment/comment.service';
 import { ToastService } from 'src/app/services/toast/toast.service';
 
+
 @Component({
   selector: 'app-detail-post',
   templateUrl: './detail-post.component.html',
@@ -37,29 +38,38 @@ export class DetailPostComponent implements OnInit {
         description:new FormControl('',Validators.required)
       }
     )
+
     this.route.params.subscribe(
       result=>
       {
         this.id_post=result.id
 
-        this.postService.getById(this.id_post).subscribe(
-          post=>
-          {
-            this.post=post
-          }
-        )
-
-        this.postService.getCommentsByPost(this.id_post).subscribe(
-          result=>
-          {
-            this.comments=result
-          }
-        )
-      }
-    )
+        this.getPostById()
+        this.getCommentsByPost()
+      })
     
   }
 
+  getPostById()
+  {
+    this.postService.getById(this.id_post).subscribe(
+      post=>
+      {
+        this.post= post
+      }
+    )
+  }
+
+  getCommentsByPost()
+  {
+    this.postService.getCommentsByPost(this.id_post).subscribe(
+      result=>
+      {
+        this.comments=result
+      }
+    )
+  
+  }
   saveComment()
   {
     this.comment.text=this.commentForm.get('description').value

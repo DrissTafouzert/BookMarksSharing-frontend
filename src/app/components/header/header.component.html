@@ -23,19 +23,18 @@
 
       <form class="form-inline my-2 my-lg-0">
         <div *ngIf="!isLoggedIn">
-            <a routerLink="/sign-up" class="float-right sign-up mr-2 nav-link">Sign up</a>
-            <a routerLink="/login" class="float-right login mr-2 nav-link">Login</a>
+            <a routerLink="/sign-up" class="btn btn-outline-primary float-right sign-up mr-2 nav-link">Sign up</a>
+            <a routerLink="/login" class="btn btn-outline-primary float-right login mr-2 nav-link">Login</a>
         </div>
 
         <div *ngIf="isLoggedIn" ngbDropdown #myDrop="ngbDropdown" class="btn-profile" >
           
           <button id='dropdown' class="float-right  mr-2 nav-link btn btn-outline-primary" 
-          ngbDropdownAnchor (focus)="myDrop.open()">
-          <img src="/assets/images/user-icon.png" alt="">
-          {{username}}
-        </button>
+            ngbDropdownAnchor (focus)="myDrop.open()">
+            <img src="/assets/images/user-icon.png" alt="">
+            {{username}}
+          </button>
           <ul ngbDropdownMenu aria-labelledby="dropdown">
-            <li ngbDropdownItem (click)="goToProfile()">Profile</li>
             <li ngbDropdownItem (click)="logOut()">Log out</li>
           </ul>
         </div>

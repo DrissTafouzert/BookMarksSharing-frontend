@@ -30,9 +30,9 @@ export class ViewSubredditComponent implements OnInit
     this.getPostBySubreddit()
   }
 
-  async getPostBySubreddit()
+  getPostBySubreddit()
   {
-    await this.getIdSubreddit()
+    this.getIdSubreddit()
     this.getSubredditById(this.subreddit_id)
     this.postService.getBySubredditId(this.subreddit_id).subscribe(
         result=>
@@ -80,7 +80,7 @@ export class ViewSubredditComponent implements OnInit
     },
     error=>
     {
-      this.toastService.showError(error.error.message)
+      this.toastService.showError("You have to be connected to your account, to join this subreddit.")
     }
     )
   }

@@ -7,6 +7,9 @@ import { LoginRequest } from 'src/app/models/loginRequest/login-request';
 import { map, tap } from 'rxjs/operators';
 import { LocalStorageService } from 'ngx-webstorage';
 import { LoginResponse } from 'src/app/models/loginRequest/login-response';
+import { Route } from '@angular/compiler/src/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastService } from '../toast/toast.service';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +24,9 @@ export class AuthService
     refreshToken:this.getRefreshToken()
   }
   constructor(private http:HttpClient,
-              private localStorage:LocalStorageService) { }
+              private localStorage:LocalStorageService,
+              private router:Router,
+              private toastService:ToastService) { }
 
   signup(registerRequest:RegisterRequest): Observable<any>
   {
@@ -29,8 +34,6 @@ export class AuthService
   }
   login(loginRequest:LoginRequest):Observable<any>
   {
-    console.log("hi it still ");
-    
      return this.http.post<LoginResponse>(API_REST.auth.login, loginRequest)
       .pipe(map(result => 
       {
@@ -75,15 +78,13 @@ export class AuthService
     this.http.post(API_REST.auth.logOut,this.refreshTokenRequest)
               .subscribe(result=>
                 {
-                  console.log(result);                  
-                },
-                error=>
-                {
-                  console.log(error);                  
+                  this.localStorage.clear('authenticationToken')
+                  this.localStorage.clear('username')
+                  this.localStorage.clear('refreshToken')
+                  this.localStorage.clear('expireAt')
+                  this.router.navigate(['/home'])
+                  this.toastService.showSucess("You are deconected now.")
                 })
-    this.localStorage.clear('authenticationToken')
-    this.localStorage.clear('username')
-    this.localStorage.clear('refreshToken')
-    this.localStorage.clear('expireAt')
+    
   }
 }

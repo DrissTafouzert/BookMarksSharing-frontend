@@ -39,12 +39,12 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginRequest).subscribe(result=>
       { 
         this.toastService.toasts=[]
-        this.toastService.showSucess("vous etez connecter")
+        this.toastService.showSucess("You are connected now.")
         this.route.navigate(['/']) 
       },
       error=>
       { 
-        this.toastService.showError("mot de pass incorrect")
+        this.toastService.showError("Username or password incorrect !")
       })
   }
 

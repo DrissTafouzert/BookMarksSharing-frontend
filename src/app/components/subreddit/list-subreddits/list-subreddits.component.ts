@@ -45,7 +45,7 @@ export class ListSubredditsComponent implements OnInit {
       },
       error=>
       {
-        this.toastService.showError(error.error.message)
+        this.toastService.showError("You have to be connected to your account, to join this subreddit.")
       }
     )
   }

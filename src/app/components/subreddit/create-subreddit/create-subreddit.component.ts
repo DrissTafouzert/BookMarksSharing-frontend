@@ -37,11 +37,12 @@ export class CreateSubredditComponent implements OnInit {
     this.subreddit.description=this.subredditForm.get('description').value
     this.subredditService.save(this.subreddit).subscribe(
       result=>{
-        this.toastService.showSucess("Subreddit created successfuly")
+        this.toastService.showSucess("Your subreddit is created successfully")
+        this.subredditForm.reset()
       },
       error=>
       {
-        this.toastService.showError("Something wont wrong!!!")
+        this.toastService.showError("Something wont wrong!!!, check your connexion and try again.")
       }
     )
   }

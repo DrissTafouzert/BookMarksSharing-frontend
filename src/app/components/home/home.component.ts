@@ -26,7 +26,8 @@ export class HomeComponent implements OnInit
       },
       error=>
       {
-        this.toastService.showError("Network error")
+        this.posts=null
+        this.toastService.showError("You are not connected.")
       }
     )
     this.postService.postsSearch.subscribe(

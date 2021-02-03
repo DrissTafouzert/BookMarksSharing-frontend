@@ -5,6 +5,7 @@ import { Post } from 'src/app/models/post';
 import { Router } from '@angular/router';
 import { PostService } from 'src/app/services/post/post.service';
 import { SubredditService } from 'src/app/services/subreddit/subreddit.service';
+import { ToastService } from 'src/app/services/toast/toast.service';
 
 @Component({
   selector: 'app-create-post',
@@ -18,7 +19,8 @@ export class CreatePostComponent implements OnInit {
   post:Post
   constructor(private postService:PostService,
               private subredditService:SubredditService,
-              private router:Router) 
+              private router:Router,
+              private toastService:ToastService) 
   {
     this.post=
     {
@@ -44,7 +46,7 @@ export class CreatePostComponent implements OnInit {
       },
       error=>
       {
-        console.log(error);        
+        this.toastService.showError("We can't get all list of subreddit which is mandatory to create a post. Please check your connexion and refresh the page.")
       }
     )
   }
@@ -61,11 +63,12 @@ export class CreatePostComponent implements OnInit {
     this.postService.save(this.post).subscribe(
       result=>
       {
-        console.log(result);
+        this.toastService.showSucess("Your post is created successfully")
+        this.postForm.reset()
       },
       error=>
       {
-        console.log(error);
+        this.toastService.showError("There is something wrong !, check your connexion")
       }
     )
   }

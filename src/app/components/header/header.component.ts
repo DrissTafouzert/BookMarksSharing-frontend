@@ -46,10 +46,6 @@ export class HeaderComponent implements OnInit
     this.username=null
     this.router.navigate([''])
   }
-  goToProfile()
-  {
-    this.router.navigate([''])
-  }
   searchByPostTitle()
   {
     let postName=this.searchForm.get('postName').value

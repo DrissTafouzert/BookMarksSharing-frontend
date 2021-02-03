@@ -19,7 +19,7 @@ export class SignUpComponent implements OnInit
             private toastService:ToastService) 
   {
     this.registerRequest={
-      username:'',
+      userName:'',
       email:'',
       password:''
     }
@@ -35,10 +35,11 @@ export class SignUpComponent implements OnInit
     });
     this.registerForm.setValidators(this.MustMatch)
   }
+
   signUp()
   {
     this.registerRequest.email=this.registerForm.get('email').value
-    this.registerRequest.username=this.registerForm.get('username').value
+    this.registerRequest.userName=this.registerForm.get('username').value
     this.registerRequest.password=this.registerForm.get('password').value
     this.authService.signup(this.registerRequest)
                     .subscribe(result=>
@@ -48,9 +49,11 @@ export class SignUpComponent implements OnInit
                       },
                       error=>
                       {
+                        console.log(error);                                               
                         this.toastService.showError(error.error.message)                      
                       })
   }
+  
   MustMatch(control:AbstractControl): { [key:string]: boolean} | null
   {
       if(control.get('password').value!==control.get('confirmPassword').value)
@@ -60,9 +63,7 @@ export class SignUpComponent implements OnInit
       else
       {
         return null
-      }
-        
+      }     
   }
-  
 }
 

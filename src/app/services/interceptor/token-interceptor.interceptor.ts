@@ -21,8 +21,7 @@ export class TokenInterceptorInterceptor implements HttpInterceptor
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> 
   {
     if(request.url.match('login') || request.url.match('refresh'))
-    {
-      console.log("login url *****************$$$");      
+    {     
       return next.handle(request)
     }
     const jwt=this.authService.getJwtToken()
@@ -33,8 +32,6 @@ export class TokenInterceptorInterceptor implements HttpInterceptor
           {
             if(error instanceof HttpErrorResponse && (error.status===403  || error.status===401))
             {
-              console.log("handle auth error",error);
-              
               return this.handleAuthError(request, next)
             }
             else
@@ -49,17 +46,13 @@ export class TokenInterceptorInterceptor implements HttpInterceptor
   private handleAuthError(req:HttpRequest<any>, next:HttpHandler):Observable<HttpEvent<any>>
   {
     if(!this.isTokenRefreshed)
-    {
-      console.log("isToken refreshed false");
-      
+    {      
       this.isTokenRefreshed=true
       this.refreshTokenSubject.next(null)
 
       return this.authService.refreshToken().pipe(
         switchMap((refreshTokenResponse:LoginResponse)=>
-        {
-          console.log("refresh token");
-          
+        {          
           this.isTokenRefreshed=false
           this.refreshTokenSubject.next(refreshTokenResponse.authenticationToken)
           return next.handle(this.addToken(req,refreshTokenResponse.authenticationToken))
