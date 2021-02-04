@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators, AbstractControl, ValidatorFn } from
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/authentification/auth.service';
 import { ToastService } from 'src/app/services/toast/toast.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-sign-up',
@@ -16,7 +17,8 @@ export class SignUpComponent implements OnInit
   public registerForm:FormGroup;
   constructor(private router:Router,
             private authService:AuthService,
-            private toastService:ToastService) 
+            private toastService:ToastService,
+            private modalService:NgbModal) 
   {
     this.registerRequest={
       userName:'',
@@ -36,7 +38,7 @@ export class SignUpComponent implements OnInit
     this.registerForm.setValidators(this.MustMatch)
   }
 
-  signUp()
+  signUp(content)
   {
     this.registerRequest.email=this.registerForm.get('email').value
     this.registerRequest.userName=this.registerForm.get('username').value
@@ -44,13 +46,12 @@ export class SignUpComponent implements OnInit
     this.authService.signup(this.registerRequest)
                     .subscribe(result=>
                       {
-                        this.router.navigate(['/login'])
+                        this.openModal(content) 
                         this.toastService.showSucess("Your account created successfuly")
                       },
                       error=>
-                      {
-                        console.log(error);                                               
-                        this.toastService.showError(error.error.message)                      
+                      {                                             
+                        this.toastService.showError("Network error, check your connexion!")                      
                       })
   }
   
@@ -64,6 +65,10 @@ export class SignUpComponent implements OnInit
       {
         return null
       }     
+  }
+  openModal(content) 
+  {
+    this.modalService.open(content, { centered: true})
   }
 }
 

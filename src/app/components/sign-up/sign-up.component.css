@@ -43,5 +43,10 @@
     position: relative;
     text-align: center;
     color: white;
-    z-index: 11111;
+    z-index: 111;
+}
+
+.modal-popup
+{
+   padding: 15px;
 }

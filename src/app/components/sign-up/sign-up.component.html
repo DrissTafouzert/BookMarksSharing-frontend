@@ -11,7 +11,7 @@
                     <h4>SignUp</h4>
                 </div>
                 <div class="card-body ">
-                    <form [formGroup]="registerForm" (ngSubmit)="signUp()">
+                    <form [formGroup]="registerForm" (ngSubmit)="signUp(content)">
                         <div class="form-group row">
                             <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail
                                 Address</label>
@@ -74,3 +74,21 @@
         </div>
     </div>
 </div>
+<ng-template #content let-modal >
+    <div class="modal-popup">
+        <div class="modal-header">
+            <h4 class="modal-title">Thank you for your registration.</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h5>You will receive an email to confirm your account.</h5>
+            <h5>You will find the email in the <strong>Spam</strong> group.</h5>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" (click)="modal.close('Close click')">Close</button>
+          </div>
+    </div>
+   
+  </ng-template>

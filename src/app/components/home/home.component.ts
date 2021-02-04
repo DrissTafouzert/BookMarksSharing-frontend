@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit
     this.postService.postsSearch.subscribe(
       result=>
       {
+        this.posts=[]
         this.posts=result
       },
       error=>

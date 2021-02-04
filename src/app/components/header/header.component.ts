@@ -51,5 +51,9 @@ export class HeaderComponent implements OnInit
     let postName=this.searchForm.get('postName').value
     this.postService.searchPostByTitle(postName).subscribe()
   }
+  goToHome()
+  {
+    this.router.navigate(["/home"])
+  }
 
 }
