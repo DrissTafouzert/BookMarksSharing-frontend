@@ -2,17 +2,16 @@
 <div class="col-lg-1 ">
     
     <img class="user-icon" src="https://ui-avatars.com/api/?background={{user_bg_color}}&color=fff&name={{comment.userName}}" alt="">
-    <!-- <img class="user-icon" src="/assets/images/user-icon.png" alt=""> -->
 </div>
 <div class="col-lg-11 user-name">{{comment.userName}} <span class="posted-ago">. {{comment.createdDate}} ago</span></div>
 <div class="col-lg-11 offset-1 text">
-    <p>{{comment.text}} </p>
+    <p [innerHtml]="comment.text"></p>
 </div>
 <div class="col-lg-11 offset-1">
-    <span class="up-vote mr-lg-2">&#11014;</span>
+    <span class="up-vote mr-lg-2" ngbTooltip="This function will available in the next version." triggers="click:blur">&#11014;</span>
     <p class="d-inline-block mr-lg-2 comment-count">2.8K</p>
-    <span class="down-vote mr-lg-2">&#11015;</span>
-    <span class="ml-lg-3 replay">
+    <span class="down-vote mr-lg-2" ngbTooltip="This function will available in the next version." triggers="click:blur">&#11015;</span>
+    <span class="ml-lg-3 replay" ngbTooltip="This function will available in the next version." triggers="click:blur">
         <img src="/assets/images/comment-icon.png" alt="">
         <p class="d-inline-block ml-lg-2">Replay</p>
     </span>
