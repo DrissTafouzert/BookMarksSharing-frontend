@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "heroku-postbuild":"ng build --prod",
+    "heroku-postbuild": "ng build --prod",
     "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
@@ -30,13 +30,14 @@
     "@ng-bootstrap/ng-bootstrap": "^8.0.0",
     "@tinymce/tinymce-angular": "^4.2.0",
     "bootstrap": "^4.5.3",
+    "compression": "^1.7.4",
     "express": "^4.17.1",
     "material-icons": "^0.3.1",
     "ngx-webstorage": "^6.0.0",
     "rxjs": "~6.6.3",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.2",
-    "typescript": "~4.0.5"
+    "typescript": "~4.0.5",
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1002.0",
